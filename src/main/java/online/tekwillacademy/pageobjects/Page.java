@@ -22,12 +22,6 @@ public abstract class Page {
     @FindBy(xpath = "//a[@class='dropdown-item'][normalize-space()='Login']")
     protected WebElement loginOption;
 
-    @FindBy(xpath = "//a[@class='list-group-item'][normalize-space()='Logout']")
-    protected WebElement logoutOption;
-
-//    @FindBy(xpath = "//a[normalize-space()='Continue']")
-//    protected WebElement continueAccountButton;
-
     public void navigateToRegisterPage(){
         userDropDownIcon.click();
         registerOption.click();
@@ -37,12 +31,6 @@ public abstract class Page {
         userDropDownIcon.click();
         loginOption.click();
         System.out.println("The Login option has been clicked");
-    }
-
-    public void clickOnLogoutButton(){
-        ScrollManager.scrollToElement(logoutOption);
-        logoutOption.click();
-        System.out.println("The Logout button is clicked.");
     }
 }
 

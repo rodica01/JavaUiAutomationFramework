@@ -19,11 +19,21 @@ public class TestRunner {
         homePage.navigateToRegisterPage();
 
         RegisterPage registerPage = new RegisterPage(driver);
+        String randomEmail = DataGeneratorManager.getRandomEmail();
         registerPage.completeTheRegisterForm("Rodica","Popa", DataGeneratorManager.getRandomEmail(),"Password123");
         registerPage.enablePrivacyToggle();
         registerPage.clickOnContinueButton();
-        Thread.sleep(1000);
-        registerPage.clickOnLogoutButton();
+        Thread.sleep(2000);
+
+        AccountPage accountPage = new AccountPage(driver);
+        accountPage.clickOnLogoutButton();
+
+        homePage.navigateToLoginButton();
+        Thread.sleep(3000);
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.completeTheLoginForm(randomEmail, "Password123");
+        loginPage.clickOnContinueButton();
 
         Thread.sleep(5000);
 
